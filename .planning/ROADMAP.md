@@ -35,8 +35,8 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 
 **Plans:** 2 plans
 
-- [ ] 01-01-PLAN.md — Homepage + Navbar + Footer + Hero + Age Gate
-- [ ] 01-02-PLAN.md — Product Catalog + Product Grid + Product Cards
+- [x] 01-01-PLAN.md — Homepage + Navbar + Footer + Hero + Age Gate
+- [x] 01-02-PLAN.md — Product Catalog + Product Grid + Product Cards
 
 **UI hint:** yes
 
@@ -61,7 +61,9 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 7. Cart badge in navbar shows item count and updates in real-time
 8. Cart shows friendly empty state message when no items added
 
-**Plans:** TBD
+**Plans:** 1 plan
+
+- [x] 02-01-PLAN.md — Cart slide-out, quantity controls, persistence, running total
 
 ---
 
@@ -85,7 +87,9 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 8. Pre-filled message includes order total
 9. Cart clears after WhatsApp link opens
 
-**Plans:** TBD
+**Plans:** 1 plan
+
+- [x] 03-01-PLAN.md — Checkout form, validation, WhatsApp link generation
 
 ---
 
@@ -93,9 +97,9 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 
 | Phase                   | Plans Complete | Status      | Completed |
 | ----------------------- | -------------- | ----------- | --------- |
-| 1. Foundation & Catalog | 0/2            | Not started | -         |
-| 2. Cart System          | 0/1            | Not started | -         |
-| 3. Checkout & WhatsApp  | 0/1            | Not started | -         |
+| 1. Foundation & Catalog | 2/2            | Complete    | 2026-04-26 |
+| 2. Cart System          | 1/1            | Complete    | 2026-04-27 |
+| 3. Checkout & WhatsApp  | 1/1            | Planned     | -         |
 
 ---
 
