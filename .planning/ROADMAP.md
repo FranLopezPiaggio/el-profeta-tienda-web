@@ -123,6 +123,18 @@ Plans:
 - [ ] 04-01-PLAN.md — Design token file + globals.css integration
 - [ ] 04-02-PLAN.md — Component audit + token reference guide
 
+### Phase 5: Simple CMS - Orders, Customers & Reports
+
+**Goal:** Build admin CMS with Supabase for order management, customer database, and sales reports. Protected via Supabase Auth (Google OAuth). Order data captured BEFORE sending to WhatsApp.
+
+**Requirements**: MGMT-01, MGMT-02, MGMT-03, MGMT-04
+**Depends on:** Phase 4
+**Plans:** 2 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Supabase database schema + Auth (Google OAuth) + CMS login + protected routes
+- [ ] 05-02-PLAN.md — Checkout integration (save to DB before WhatsApp) + CMS dashboard + Orders + Reports
+
 ---
 
 _Last updated: 2026-04-26_
