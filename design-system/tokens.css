@@ -1,0 +1,88 @@
+/**
+ * Antares Design System — Design Tokens
+ * El Profeta Craft Beer Store
+ * 
+ * Based on Cervecería Antares brand guidelines
+ * Colors optimized for dark-themed e-commerce
+ */
+
+:root {
+  /* === Color: Text === */
+  --color-text-primary: #f2e5d7;    /* cream — primary readable text */
+  --color-text-secondary: #463a2f;  /* brown — secondary/muted text */
+  --color-text-tertiary: #00555b;   /* teal — links, accents */
+  --color-text-inverse: #ffffff;    /* white — on dark surfaces */
+  --color-text-muted: #9fd5da;      /* light teal — captions, disabled */
+
+  /* === Color: Surface === */
+  --color-surface-base: #000000;     /* black — primary dark background */
+  --color-surface-raised: #fdfdfd; /* off-white — light cards, modals */
+  --color-surface-muted: #9fd5da;   /* light teal — muted backgrounds */
+  --color-surface-strong: #00828c;  /* teal — primary actions, highlights */
+  --color-surface-overlay: #1a1a1a; /* overlay dark — menus, dropdowns */
+
+  /* === Color: Brand === */
+  --color-accent: #00828c;         /* teal — primary brand accent */
+  --color-accent-hover: #006a73;     /* darker teal — hover state */
+  --color-accent-muted: #9fd5da;    /* light teal — secondary accent */
+
+  /* === Typography === */
+  --font-family-base: var(--font-playfair), 'Georgia', serif;
+  --font-family-display: var(--font-montserrat), 'Helvetica Neue', sans-serif;
+  
+  --font-size-xs: 13.33px;   /* 0.875rem */
+  --font-size-sm: 14.4px;    /* 0.95rem */
+  --font-size-base: 15.2px;  /* 1rem — base size per Antares */
+  --font-size-lg: 16px;      /* 1.05rem */
+  --font-size-xl: 17.6px;    /* 1.16rem */
+  --font-size-2xl: 18px;     /* 1.19rem */
+  --font-size-3xl: 19.2px;  /* 1.26rem */
+  --font-size-4xl: 20.8px;   /* 1.37rem */
+  --font-size-5xl: 1.5rem;  /* headings scale */
+  --font-size-6xl: 2rem;     /* headings scale */
+
+  --font-weight-base: 600;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* === Spacing === */
+  --space-1: 5px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 19.2px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* === Border Radius === */
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 50px;       /* pill buttons, badges */
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* === Shadows === */
+  --shadow-sm: rgba(70, 58, 47, 0.15) 0px 10px 30px 0px;
+  --shadow-md: rgba(135, 116, 92, 0.3) 0px 8px 20px 0px;
+  --shadow-lg: rgba(0, 0, 0, 0.1) 0px 4px 6px 0px;
+  --shadow-xl: rgba(0, 130, 140, 0.2) 0px 4px 15px 0px;
+
+  /* === Motion === */
+  --motion-instant: 300ms;
+  --motion-fast: 500ms;
+  --motion-normal: 600ms;
+  --motion-slow: 800ms;
+  --ease-default: ease-in-out;
+
+  /* === Z-Index Scale === */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+}
