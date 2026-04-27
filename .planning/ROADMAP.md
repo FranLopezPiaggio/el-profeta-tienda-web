@@ -33,7 +33,10 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 7. Layout works on 320px mobile, 768px tablet, 1024px+ desktop without horizontal scroll
 8. All interactive elements have visible hover and focus states
 
-**Plans:** TBD
+**Plans:** 2 plans
+
+- [ ] 01-01-PLAN.md — Homepage + Navbar + Footer + Hero + Age Gate
+- [ ] 01-02-PLAN.md — Product Catalog + Product Grid + Product Cards
 
 **UI hint:** yes
 
@@ -90,7 +93,7 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 
 | Phase                   | Plans Complete | Status      | Completed |
 | ----------------------- | -------------- | ----------- | --------- |
-| 1. Foundation & Catalog | 0/1            | Not started | -         |
+| 1. Foundation & Catalog | 0/2            | Not started | -         |
 | 2. Cart System          | 0/1            | Not started | -         |
 | 3. Checkout & WhatsApp  | 0/1            | Not started | -         |
 
