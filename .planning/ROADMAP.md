@@ -8,7 +8,7 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 
 - [ ] **Phase 1: Foundation & Catalog** - Homepage, navigation, product grid, product cards, design system, age gate
 - [ ] **Phase 2: Cart System** - Cart slide-out, quantity controls, persistence, running total
-- [ ] **Phase 3: Checkout & WhatsApp** - Checkout form, validation, wa.me link generation
+- [x] **Phase 3: Checkout & WhatsApp** - Checkout form, validation, wa.me link generation (completed 2026-04-27)
 
 ---
 
@@ -87,7 +87,7 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 8. Pre-filled message includes order total
 9. Cart clears after WhatsApp link opens
 
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 - [x] 03-01-PLAN.md — Checkout form, validation, WhatsApp link generation
 
@@ -99,7 +99,29 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 | ----------------------- | -------------- | ----------- | --------- |
 | 1. Foundation & Catalog | 2/2            | Complete    | 2026-04-26 |
 | 2. Cart System          | 1/1            | Complete    | 2026-04-27 |
-| 3. Checkout & WhatsApp  | 1/1            | Planned     | -         |
+| 3. Checkout & WhatsApp  | 1/1 | Complete   | 2026-04-27 |
+
+### Phase 4: Design Tokens - Apply Antares Design System
+
+**Goal:** Design tokens formalized as CSS custom properties and applied consistently across all components
+
+**Depends on:** Phase 3
+
+**Requirements:** TBD (design tokens are a cross-cutting concern, not mapped to specific requirements)
+
+**Success Criteria** (what must be TRUE):
+
+1. `design-system/tokens.css` exists with all brand tokens documented as CSS custom properties
+2. `app/globals.css` imports and exposes design tokens via `:root` block
+3. All existing components use Tailwind color classes that map to design tokens
+4. `design-system/TOKEN-AUDIT.md` documents color usage across all 7 components
+5. `npm run build` passes with no errors (no breaking changes)
+
+**Plans:** 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Design token file + globals.css integration
+- [ ] 04-02-PLAN.md — Component audit + token reference guide
 
 ---
 
