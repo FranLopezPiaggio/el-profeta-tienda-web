@@ -1,10 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { useCartStore } from '@/lib/store'
+import { useCartStore } from '@/app/lib/store'
 import { ShoppingBag } from 'lucide-react'
+import { CartSidebar } from '@/app/components/cart/CartSidebar'
 
 export function Navbar() {
+  const [isCartOpen, setIsCartOpen] = useState(false)
   const itemCount = useCartStore(state =>
     state.items.reduce((sum, item) => sum + item.quantity, 0)
   )
@@ -24,7 +27,11 @@ export function Navbar() {
             Catálogo
           </Link>
 
-          <button className="relative p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-900 hover:text-gray-600" aria-label="Carrito">
+          <button 
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-900 hover:text-gray-600 cursor-pointer"
+            aria-label="Abrir carrito"
+          >
             <ShoppingBag size={24} strokeWidth={1.5} />
             {itemCount > 0 && (
               <span className="absolute -top-1 -right-1 bg-gray-900 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
@@ -34,6 +41,8 @@ export function Navbar() {
           </button>
         </div>
       </div>
+
+      {isCartOpen && <CartSidebar onClose={() => setIsCartOpen(false)} />}
     </nav>
   )
 }
