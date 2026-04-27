@@ -127,46 +127,46 @@ Explicitly excluded. Documented to prevent scope creep.
 
 Which phases cover which requirements. Updated during roadmap creation.
 
-| Requirement | Phase    | Status   |
-| ----------- | -------- | -------- |
-| NAV-01      | Phase 1  | Pending  |
-| NAV-02      | Phase 1  | Pending  |
-| NAV-03      | Phase 1  | Pending  |
-| NAV-04      | Phase 1  | Pending  |
-| CATL-01     | Phase 1  | Pending  |
-| CATL-02     | Phase 1  | Pending  |
-| CATL-03     | Phase 1  | Pending  |
-| CATL-04     | Phase 1  | Pending  |
-| CATL-05     | Phase 1  | Pending  |
-| RESP-01     | Phase 1  | Pending  |
-| RESP-02     | Phase 1  | Pending  |
-| RESP-03     | Phase 1  | Pending  |
-| RESP-04     | Phase 1  | Pending  |
-| DESN-01     | Phase 1  | Pending  |
-| DESN-02     | Phase 1  | Pending  |
-| DESN-03     | Phase 1  | Pending  |
-| DESN-04     | Phase 1  | Pending  |
-| AGE-01      | Phase 1  | Pending  |
-| AGE-02      | Phase 1  | Pending  |
-| CART-01     | Phase 2  | Pending  |
-| CART-02     | Phase 2  | Pending  |
-| CART-03     | Phase 2  | Pending  |
-| CART-04     | Phase 2  | Pending  |
-| CART-05     | Phase 2  | Pending  |
-| CART-06     | Phase 2  | Pending  |
-| CART-07     | Phase 2  | Pending  |
-| CHKT-01     | Phase 3  | Pending  |
-| CHKT-02     | Phase 3  | Pending  |
-| CHKT-03     | Phase 3  | Pending  |
-| CHKT-04     | Phase 3  | Pending  |
-| CHKT-05     | Phase 3  | Pending  |
-| CHKT-06     | Phase 3  | Pending  |
-| WATS-01     | Phase 3  | Pending  |
-| WATS-02     | Phase 3  | Pending  |
-| WATS-03     | Phase 3  | Pending  |
-| WATS-04     | Phase 3  | Pending  |
-| WATS-05     | Phase 3  | Pending  |
-| (all v2)    | Post-MVP | Deferred |
+| Requirement | Phase                         | Status   |
+| ----------- | ----------------------------- | -------- |
+| NAV-01      | Phase 1: Foundation & Catalog | Pending  |
+| NAV-02      | Phase 1: Foundation & Catalog | Pending  |
+| NAV-03      | Phase 1: Foundation & Catalog | Pending  |
+| NAV-04      | Phase 1: Foundation & Catalog | Pending  |
+| CATL-01     | Phase 1: Foundation & Catalog | Pending  |
+| CATL-02     | Phase 1: Foundation & Catalog | Pending  |
+| CATL-03     | Phase 1: Foundation & Catalog | Pending  |
+| CATL-04     | Phase 1: Foundation & Catalog | Pending  |
+| CATL-05     | Phase 1: Foundation & Catalog | Pending  |
+| RESP-01     | Phase 1: Foundation & Catalog | Pending  |
+| RESP-02     | Phase 1: Foundation & Catalog | Pending  |
+| RESP-03     | Phase 1: Foundation & Catalog | Pending  |
+| RESP-04     | Phase 1: Foundation & Catalog | Pending  |
+| DESN-01     | Phase 1: Foundation & Catalog | Pending  |
+| DESN-02     | Phase 1: Foundation & Catalog | Pending  |
+| DESN-03     | Phase 1: Foundation & Catalog | Pending  |
+| DESN-04     | Phase 1: Foundation & Catalog | Pending  |
+| AGE-01      | Phase 1: Foundation & Catalog | Pending  |
+| AGE-02      | Phase 1: Foundation & Catalog | Pending  |
+| CART-01     | Phase 2: Cart System          | Pending  |
+| CART-02     | Phase 2: Cart System          | Pending  |
+| CART-03     | Phase 2: Cart System          | Pending  |
+| CART-04     | Phase 2: Cart System          | Pending  |
+| CART-05     | Phase 2: Cart System          | Pending  |
+| CART-06     | Phase 2: Cart System          | Pending  |
+| CART-07     | Phase 2: Cart System          | Pending  |
+| CHKT-01     | Phase 3: Checkout & WhatsApp  | Pending  |
+| CHKT-02     | Phase 3: Checkout & WhatsApp  | Pending  |
+| CHKT-03     | Phase 3: Checkout & WhatsApp  | Pending  |
+| CHKT-04     | Phase 3: Checkout & WhatsApp  | Pending  |
+| CHKT-05     | Phase 3: Checkout & WhatsApp  | Pending  |
+| CHKT-06     | Phase 3: Checkout & WhatsApp  | Pending  |
+| WATS-01     | Phase 3: Checkout & WhatsApp  | Pending  |
+| WATS-02     | Phase 3: Checkout & WhatsApp  | Pending  |
+| WATS-03     | Phase 3: Checkout & WhatsApp  | Pending  |
+| WATS-04     | Phase 3: Checkout & WhatsApp  | Pending  |
+| WATS-05     | Phase 3: Checkout & WhatsApp  | Pending  |
+| (all v2)    | Post-MVP                      | Deferred |
 
 **Coverage:**
 
