@@ -1,0 +1,90 @@
+{
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "El Profeta Lager",
+      "price": 350,
+      "image": "/images/products/lager.jpg",
+      "description": "Cerveza rubia suave y refrescante. 5% alcohol. Notas sutiles de cereal y pan.",
+      "category": "lager",
+      "available": true
+    },
+    {
+      "id": "prod_002",
+      "name": "El Profeta IPA",
+      "price": 420,
+      "image": "/images/products/ipa.jpg",
+      "description": "India Pale Ale con carácter. 6.5% alcohol. Aromas tropicales y cítricas.",
+      "category": "ipa",
+      "available": true
+    },
+    {
+      "id": "prod_003",
+      "name": "El Profeta Stout",
+      "price": 400,
+      "image": "/images/products/stout.jpg",
+      "description": "Cerveza oscura intensa. 6% alcohol. Sabores a chocolate, café y caramelo.",
+      "category": "stout",
+      "available": true
+    },
+    {
+      "id": "prod_004",
+      "name": "El Profeta Amber",
+      "price": 380,
+      "image": "/images/products/amber.jpg",
+      "description": "Amber Ale equilibrada. 5.5% alcohol. Toques de caramelo y lupulo.",
+      "category": "amber",
+      "available": true
+    },
+    {
+      "id": "prod_005",
+      "name": "El Profeta Pilsen",
+      "price": 320,
+      "image": "/images/products/pilsen.jpg",
+      "description": "Pilsen clásica, ligera y crujiente. 4.5% alcohol. Perfecta para el calor.",
+      "category": "lager",
+      "available": true
+    },
+    {
+      "id": "prod_006",
+      "name": "El Profeta Porter",
+      "price": 390,
+      "image": "/images/products/porter.jpg",
+      "description": "Porter suave y cremosa. 5.5% alcohol. Notas de chocolate bitter.",
+      "category": "porter",
+      "available": true
+    },
+    {
+      "id": "prod_007",
+      "name": "El Profeta Wheat",
+      "price": 360,
+      "image": "/images/products/wheat.jpg",
+      "description": "Cerveza de trigo dorada. 5% alcohol. Fresca y con toques de banana.",
+      "category": "wheat",
+      "available": true
+    },
+    {
+      "id": "prod_008",
+      "name": "El Profeta Session IPA",
+      "price": 380,
+      "image": "/images/products/session-ipa.jpg",
+      "description": "Session IPA leicht y drinkable. 4% alcohol. Aromas florales y cítricos.",
+      "category": "ipa",
+      "available": true
+    }
+  ],
+  "categories": [
+    { "id": "lager", "name": "Lager", "description": "Cervezas rubias suaves" },
+    { "id": "ipa", "name": "IPA", "description": "India Pale Ales" },
+    { "id": "stout", "name": "Stout", "description": "Cervezas oscuras" },
+    { "id": "amber", "name": "Amber", "description": "Cervejas ámbar" },
+    { "id": "porter", "name": "Porter", "description": "Porters suaves" },
+    { "id": "wheat", "name": "Wheat", "description": "Cervezas de trigo" }
+  ],
+  "store": {
+    "name": "El Profeta",
+    "tagline": "Cerveza artesanal de calidad",
+    "whatsapp": "5491112345678",
+    "whatsapp_message_template": "Hola, soy {nombre}\nTeléfono: {telefono}\nDirección: {direccion}\n\nPedido:\n{pedido}\n\nTotal: ${total}"
+  }
+}
