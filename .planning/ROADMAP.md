@@ -95,11 +95,13 @@ El Profeta Craft Beer Store — WhatsApp-dispatch e-commerce MVP
 
 ## Progress
 
-| Phase                   | Plans Complete | Status      | Completed |
-| ----------------------- | -------------- | ----------- | --------- |
-| 1. Foundation & Catalog | 2/2            | Complete    | 2026-04-26 |
-| 2. Cart System          | 1/1            | Complete    | 2026-04-27 |
-| 3. Checkout & WhatsApp  | 1/1 | Complete   | 2026-04-27 |
+| Phase                        | Plans Complete | Status      | Completed |
+| ---------------------------- | -------------- | ----------- | --------- |
+| 1. Foundation & Catalog      | 2/2            | Complete    | 2026-04-26 |
+| 2. Cart System               | 1/1            | Complete    | 2026-04-27 |
+| 3. Checkout & WhatsApp       | 1/1            | Complete    | 2026-04-27 |
+| 4. Design Tokens             | 2/2            | Complete    | 2026-04-27 |
+| 5. Simple CMS                | 2/2            | Complete    | 2026-04-27 |
 
 ### Phase 4: Design Tokens - Apply Antares Design System
 
@@ -129,11 +131,11 @@ Plans:
 
 **Requirements**: MGMT-01, MGMT-02, MGMT-03, MGMT-04
 **Depends on:** Phase 4
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 05-01-PLAN.md — Supabase database schema + Auth (Google OAuth) + CMS login + protected routes
-- [ ] 05-02-PLAN.md — Checkout integration (save to DB before WhatsApp) + CMS dashboard + Orders + Reports
+- [x] 05-01-PLAN.md — Supabase database schema + Auth (Google OAuth) + CMS login + protected routes
+- [x] 05-02-PLAN.md — Checkout integration (save to DB before WhatsApp) + CMS dashboard + Orders + Reports
 
 ---
 
