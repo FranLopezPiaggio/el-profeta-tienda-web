@@ -34,20 +34,20 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Checkout
 
-- [ ] **CHKT-01**: Checkout form collects customer name (required)
-- [ ] **CHKT-02**: Checkout form collects phone number (required)
-- [ ] **CHKT-03**: Checkout form collects delivery address (required)
-- [ ] **CHKT-04**: Checkout form validates required fields and shows inline error messages
-- [ ] **CHKT-05**: Checkout form "Finalizar compra" button is sticky/always visible above fold on mobile
-- [ ] **CHKT-06**: "Finalizar compra" button is disabled until all required fields are filled
+- [x] **CHKT-01**: Checkout form collects customer name (required)
+- [x] **CHKT-02**: Checkout form collects phone number (required)
+- [x] **CHKT-03**: Checkout form collects delivery address (required)
+- [x] **CHKT-04**: Checkout form validates required fields and shows inline error messages
+- [x] **CHKT-05**: Checkout form "Finalizar compra" button is sticky/always visible above fold on mobile
+- [x] **CHKT-06**: "Finalizar compra" button is disabled until all required fields are filled
 
 ### WhatsApp Integration
 
-- [ ] **WATS-01**: Submitting checkout form opens WhatsApp wa.me link with pre-filled message
-- [ ] **WATS-02**: Pre-filled message includes: customer name, phone, delivery address
-- [ ] **WATS-03**: Pre-filled message includes itemized order (product name × quantity = subtotal per item)
-- [ ] **WATS-04**: Pre-filled message includes order total
-- [ ] **WATS-05**: After WhatsApp link opens, cart is cleared
+- [x] **WATS-01**: Submitting checkout form opens WhatsApp wa.me link with pre-filled message
+- [x] **WATS-02**: Pre-filled message includes: customer name, phone, delivery address
+- [x] **WATS-03**: Pre-filled message includes itemized order (product name × quantity = subtotal per item)
+- [x] **WATS-04**: Pre-filled message includes order total
+- [x] **WATS-05**: After WhatsApp link opens, cart is cleared
 
 ### Responsive Design
 
@@ -155,17 +155,17 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CART-05     | Phase 2: Cart System          | Pending  |
 | CART-06     | Phase 2: Cart System          | Pending  |
 | CART-07     | Phase 2: Cart System          | Pending  |
-| CHKT-01     | Phase 3: Checkout & WhatsApp  | Pending  |
-| CHKT-02     | Phase 3: Checkout & WhatsApp  | Pending  |
-| CHKT-03     | Phase 3: Checkout & WhatsApp  | Pending  |
-| CHKT-04     | Phase 3: Checkout & WhatsApp  | Pending  |
-| CHKT-05     | Phase 3: Checkout & WhatsApp  | Pending  |
-| CHKT-06     | Phase 3: Checkout & WhatsApp  | Pending  |
-| WATS-01     | Phase 3: Checkout & WhatsApp  | Pending  |
-| WATS-02     | Phase 3: Checkout & WhatsApp  | Pending  |
-| WATS-03     | Phase 3: Checkout & WhatsApp  | Pending  |
-| WATS-04     | Phase 3: Checkout & WhatsApp  | Pending  |
-| WATS-05     | Phase 3: Checkout & WhatsApp  | Pending  |
+| CHKT-01     | Phase 3: Checkout & WhatsApp  | Complete |
+| CHKT-02     | Phase 3: Checkout & WhatsApp  | Complete |
+| CHKT-03     | Phase 3: Checkout & WhatsApp  | Complete |
+| CHKT-04     | Phase 3: Checkout & WhatsApp  | Complete |
+| CHKT-05     | Phase 3: Checkout & WhatsApp  | Complete |
+| CHKT-06     | Phase 3: Checkout & WhatsApp  | Complete |
+| WATS-01     | Phase 3: Checkout & WhatsApp  | Complete |
+| WATS-02     | Phase 3: Checkout & WhatsApp  | Complete |
+| WATS-03     | Phase 3: Checkout & WhatsApp  | Complete |
+| WATS-04     | Phase 3: Checkout & WhatsApp  | Complete |
+| WATS-05     | Phase 3: Checkout & WhatsApp  | Complete |
 | (all v2)    | Post-MVP                      | Deferred |
 
 **Coverage:**
