@@ -47,7 +47,7 @@ export default function EventosPage() {
                 Fiestas de Cumpleaños
               </h3>
               <p className="text-gray-600">
-                Desde生日 simples hasta fiestas temáticas. Te armamos un combo de cerveza para tu celebration.
+                Desde fiestas simples hasta fiestas temáticas. Te armamos un combo de cerveza para tu celebración.
               </p>
             </div>
 
@@ -67,7 +67,7 @@ export default function EventosPage() {
                 Eventos Familiares
               </h3>
               <p className="text-gray-600">
-                Fechas patrias, reuniones familiares, comuniones y confirmaciones. Мы тебе поможем.
+                Fechas patrias, reuniones familiares, comuniones y confirmaciones. Te ayudamos a hacer realidad tu evento.
               </p>
             </div>
 

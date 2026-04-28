@@ -110,7 +110,7 @@ export default function NegociosPage() {
               ¿Hablamos de negocios?
             </h2>
             <p className="text-gray-600 mb-8">
-              Estamos siempre abiertos a nuevas alianzas. Escribinos y te respondemos ASAP.
+              Estamos siempre abiertos a nuevas alianzas. Escribinos y te respondemos lo antes posible.
             </p>
             <Link
               href="/contacto"
