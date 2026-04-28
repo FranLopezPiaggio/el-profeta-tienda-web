@@ -22,7 +22,7 @@
       "id": "prod_003",
       "name": "El Profeta Stout",
       "price": 400,
-      "image": "/images/products/stout.jpg",
+      "image": "/",
       "description": "Cerveza oscura intensa. 6% alcohol. Sabores a chocolate, café y caramelo.",
       "category": "stout",
       "available": true

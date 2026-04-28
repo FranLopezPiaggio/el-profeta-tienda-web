@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { useCartStore } from '@/app/lib/store'
-import { formatPrice } from '@/app/lib/utils'
+import { useCartStore } from '@/lib/store'
+import { formatPrice } from '@/lib/utils'
 import {
   generateOrderMessage,
   createWhatsAppLink,
@@ -12,7 +12,7 @@ import {
   formatWhatsAppPhoneForDisplay,
   getWhatsAppPhone,
   saveOrderAndGenerateLink
-} from '@/app/lib/checkout'
+} from '@/lib/checkout'
 import { X, ShoppingBag, Minus, Plus, Trash2, Phone, RotateCcw } from 'lucide-react'
 
 interface CartSidebarProps {

@@ -5,7 +5,7 @@
 
 import { CartItem } from './store'
 import { formatPrice } from './utils'
-import { saveOrder } from './supabase'
+import { saveOrderToSupabase } from './supabase/client'
 
 // WhatsApp phone number from PROJECT.md
 const WHATSAPP_PHONE = '5492324511751'
@@ -141,7 +141,7 @@ export async function saveOrderAndGenerateLink(
   total: number
 ): Promise<{ orderId: string | null; whatsappLink: string; error?: string }> {
   // Save order to Supabase first (per D-01: Save to DB before WhatsApp)
-  const result = await saveOrder(
+  const result = await saveOrderToSupabase(
     customerName,
     customerPhone,
     customerAddress,

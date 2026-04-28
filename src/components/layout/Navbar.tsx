@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useCartStore } from '@/app/lib/store'
+import { useCartStore } from '@/lib/store'
 import { ShoppingBag } from 'lucide-react'
-import { CartSidebar } from '@/app/components/cart/CartSidebar'
+import { CartSidebar } from '@/components/cart/CartSidebar'
 
 export function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false)
@@ -23,9 +23,9 @@ export function Navbar() {
           <Link href="/" className="text-gray-900 hover:text-gray-600 text-sm font-medium">
             Inicio
           </Link>
-          <Link href="/catalogo" className="text-gray-900 hover:text-gray-600 text-sm font-medium">
+          <a href="/#catalogo" className="text-gray-900 hover:text-gray-600 text-sm font-medium">
             Catálogo
-          </Link>
+          </a>
 
           <button 
             onClick={() => setIsCartOpen(true)}

@@ -1,9 +1,10 @@
 @import "tailwindcss";
-@import "../design-system/tokens.css";
+@import "../../design-system/tokens.css";
 
 @theme {
   --font-sans: var(--font-montserrat), ui-sans, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-display: var(--font-special-gothic), ui-serif, sans-serif;
 }
 
 /* === Base Styles — Antares Dark Theme === */
@@ -36,10 +37,21 @@ body {
 
 /* === Typography Defaults === */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), ui-serif, Georgia, serif;
-  font-weight: var(--font-weight-base);
+  font-family: var(--font-special-gothic), ui-serif, sans-serif;
+  font-weight: 400;
   color: var(--color-text-primary);
   line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Specific sizes for h1 and h2 */
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 /* === Focus Styles === */

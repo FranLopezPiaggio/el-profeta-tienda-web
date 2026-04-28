@@ -1,5 +1,5 @@
 import { ProductGrid } from '@/components/catalog/ProductGrid'
-import productsData from '@/data/products.json'
+import productsData from '../../../data/products.json'
 
 export const metadata = {
   title: 'Catálogo | El Profeta',

@@ -1,27 +1,18 @@
 /**
- * Supabase client configuration for El Profeta
- * Phase 5: Simple CMS - Orders, Customers & Reports
+ * Supabase client for SERVER COMPONENTS ONLY
+ * Use this for: CMS pages, API routes, Server Components
+ * 
+ * For CLIENT components, use './client.ts'
  */
 
-import { createBrowserClient, createServerClient, createMiddlewareClient } from '@supabase/ssr'
+import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
-// Environment variables must be set in .env.local
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder'
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase environment variables not configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local')
-}
-
-/**
- * Create Supabase client for browser/components
- */
-export function createClient() {
-  return createBrowserClient(
-    supabaseUrl || 'https://placeholder.supabase.co',
-    supabaseAnonKey || 'placeholder'
-  )
+if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  console.warn('Supabase not configured')
 }
 
 /**
@@ -30,48 +21,22 @@ export function createClient() {
 export async function createServerSupabaseClient() {
   const cookieStore = await cookies()
   
-  return createServerClient(
-    supabaseUrl || 'https://placeholder.supabase.co',
-    supabaseAnonKey || 'placeholder',
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll()
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) => {
-              cookieStore.set(name, value, options)
-            })
-          } catch {
-            // Called from Server Component - can be ignored
-          }
-        },
+  return createServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll()
       },
-    }
-  )
-}
-
-/**
- * Create Supabase client for middleware
- */
-export function createMiddlewareSupabaseClient(cookieStore: { getAll: () => any[], setAll: (cookies: any[]) => void }) {
-  return createMiddlewareClient(
-    supabaseUrl || 'https://placeholder.supabase.co',
-    supabaseAnonKey || 'placeholder',
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll()
-        },
-        setAll(cookiesToSet) {
+      setAll(cookiesToSet: Array<{name: string, value: string, options?: any}>) {
+        try {
           cookiesToSet.forEach(({ name, value, options }) => {
             cookieStore.set(name, value, options)
           })
-        },
+        } catch {
+          // Called from Server Component - can be ignored
+        }
       },
-    }
-  )
+    },
+  })
 }
 
 /**
@@ -137,56 +102,6 @@ export interface OrderItem {
 }
 
 /**
- * Save order to Supabase
- * Uses the database function for atomic operation
- */
-export async function saveOrder(
-  customerName: string,
-  customerPhone: string,
-  customerAddress: string,
-  items: Array<{
-    id: string
-    name: string
-    price: number
-    quantity: number
-  }>,
-  total: number,
-  email?: string
-): Promise<{ success: boolean; orderId?: string; error?: string }> {
-  const supabase = createClient()
-  
-  try {
-    // Convert items to JSONB format for the function
-    const itemsJson = JSON.stringify(items.map(item => ({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity
-    })))
-    
-    // Call the database function
-    const { data, error } = await supabase.rpc('save_order', {
-      p_customer_name: customerName,
-      p_customer_phone: customerPhone,
-      p_customer_address: customerAddress,
-      p_email: email || null,
-      p_items: itemsJson,
-      p_total: total
-    })
-    
-    if (error) {
-      console.error('Error saving order:', error)
-      return { success: false, error: error.message }
-    }
-    
-    return { success: true, orderId: data }
-  } catch (error) {
-    console.error('Exception saving order:', error)
-    return { success: false, error: String(error) }
-  }
-}
-
-/**
  * Get orders for CMS admin
  * Returns all orders with their items
  */
@@ -230,7 +145,6 @@ export async function getOrders(options?: {
       return { orders: [], error: error.message }
     }
     
-    // Group order items with their orders
     const ordersWithItems = (data || []).map(order => ({
       ...order,
       items: order.order_items || []
@@ -240,33 +154,6 @@ export async function getOrders(options?: {
   } catch (error) {
     console.error('Exception fetching orders:', error)
     return { orders: [], error: String(error) }
-  }
-}
-
-/**
- * Update order status
- */
-export async function updateOrderStatus(
-  orderId: string,
-  status: 'pending' | 'confirmed' | 'delivered' | 'cancelled'
-): Promise<{ success: boolean; error?: string }> {
-  const supabase = createClient()
-  
-  try {
-    const { error } = await supabase
-      .from('orders')
-      .update({ status, updated_at: new Date().toISOString() })
-      .eq('order_id', orderId)
-    
-    if (error) {
-      console.error('Error updating order status:', error)
-      return { success: false, error: error.message }
-    }
-    
-    return { success: true }
-  } catch (error) {
-    console.error('Exception updating order status:', error)
-    return { success: false, error: String(error) }
   }
 }
 
@@ -343,7 +230,6 @@ export async function getTopProducts(options?: {
   const supabase = await createServerSupabaseClient()
   
   try {
-    // First get orders in date range
     let ordersQuery = supabase
       .from('orders')
       .select('id')
@@ -368,7 +254,6 @@ export async function getTopProducts(options?: {
     
     const orderIds = orders.map(o => o.id)
     
-    // Then get items for those orders
     const { data: items, error: itemsError } = await supabase
       .from('order_items')
       .select('product_name, quantity, subtotal')
@@ -378,7 +263,6 @@ export async function getTopProducts(options?: {
       return { products: [], error: itemsError.message }
     }
     
-    // Aggregate by product
     const productMap = new Map<string, { units_sold: number; revenue: number }>()
     
     items?.forEach(item => {
@@ -435,7 +319,6 @@ export async function getRepeatCustomerRate(options?: {
       return { totalCustomers: 0, repeatCustomers: 0, repeatRate: 0, error: error.message }
     }
     
-    // Count orders per customer
     const customerOrders = new Map<string, number>()
     data?.forEach(order => {
       const count = customerOrders.get(order.customer_phone) || 0

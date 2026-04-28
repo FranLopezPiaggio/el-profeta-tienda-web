@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { createClient } from '@/app/lib/supabase'
+import { createClient } from '@/lib/supabase/client'
 import { Beer } from 'lucide-react'
 
 export default function LoginPage() {

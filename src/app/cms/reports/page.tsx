@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/app/lib/supabase'
+import { createClient } from '@/lib/supabase/client'
 import {
   BarChart,
   Bar,
@@ -370,7 +370,7 @@ export default function ReportsPage() {
                           border: '1px solid #E5E7EB',
                           borderRadius: '8px'
                         }}
-                        formatter={(value: number) => formatCurrency(value)}
+                        formatter={(value) => formatCurrency(Number(value))}
                       />
                       <Bar dataKey="revenue" fill="#4B5563" radius={[4, 4, 0, 0]} />
                     </BarChart>
