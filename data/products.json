@@ -1,86 +1,121 @@
 {
   "products": [
     {
-      "id": "prod_001",
-      "name": "El Profeta Lager",
-      "price": 350,
-      "image": "/images/products/lager.jpg",
-      "description": "Cerveza rubia suave y refrescante. 5% alcohol. Notas sutiles de cereal y pan.",
-      "category": "lager",
-      "available": true
+      "id": "blonde",
+      "name": "El Profeta Blonde",
+      "price": 890,
+      "image": "/blonde.jpeg",
+      "description": "Cerveza rubia dorada. 5% alcohol. Suave, equilibrada con notas de cereal y pan fresco.",
+      "category": "blonde",
+      "abv": 5,
+      "volume": "473ml",
+      "format": "lata",
+      "available": true,
+      "discounts": [
+        { "minQty": 6, "discount": 10 },
+        { "minQty": 12, "discount": 15 },
+        { "minQty": 24, "discount": 20 }
+      ]
     },
     {
-      "id": "prod_002",
-      "name": "El Profeta IPA",
-      "price": 420,
-      "image": "/images/products/ipa.jpg",
-      "description": "India Pale Ale con carácter. 6.5% alcohol. Aromas tropicales y cítricas.",
-      "category": "ipa",
-      "available": true
+      "id": "honey",
+      "name": "El Profeta Honey",
+      "price": 950,
+      "image": "/honey.jpeg",
+      "description": "Cerveza con miel orgánica. 5.5% alcohol. Dulzor natural de miel con acabado suave.",
+      "category": "honey",
+      "abv": 5.5,
+      "volume": "473ml",
+      "format": "lata",
+      "available": true,
+      "discounts": [
+        { "minQty": 6, "discount": 10 },
+        { "minQty": 12, "discount": 15 },
+        { "minQty": 24, "discount": 20 }
+      ]
     },
     {
-      "id": "prod_003",
+      "id": "irishred",
+      "name": "El Profeta Irish Red",
+      "price": 990,
+      "image": "/irishred.jpeg",
+      "description": "Irish Red Ale color rojizo. 5.8% alcohol. Notas de caramelo y tostado suave.",
+      "category": "irishred",
+      "abv": 5.8,
+      "volume": "473ml",
+      "format": "lata",
+      "available": true,
+      "discounts": [
+        { "minQty": 6, "discount": 10 },
+        { "minQty": 12, "discount": 15 },
+        { "minQty": 24, "discount": 20 }
+      ]
+    },
+    {
+      "id": "stout",
       "name": "El Profeta Stout",
-      "price": 400,
-      "image": "/",
-      "description": "Cerveza oscura intensa. 6% alcohol. Sabores a chocolate, café y caramelo.",
+      "price": 1050,
+      "image": "/stout.jpeg",
+      "description": "Stout oscura e intensa. 6.5% alcohol. Sabores a chocolate negro, café tostado y caramelo.",
       "category": "stout",
-      "available": true
+      "abv": 6.5,
+      "volume": "473ml",
+      "format": "lata",
+      "available": true,
+      "discounts": [
+        { "minQty": 6, "discount": 10 },
+        { "minQty": 12, "discount": 15 },
+        { "minQty": 24, "discount": 20 }
+      ]
     },
     {
-      "id": "prod_004",
-      "name": "El Profeta Amber",
-      "price": 380,
-      "image": "/images/products/amber.jpg",
-      "description": "Amber Ale equilibrada. 5.5% alcohol. Toques de caramelo y lupulo.",
-      "category": "amber",
-      "available": true
-    },
-    {
-      "id": "prod_005",
-      "name": "El Profeta Pilsen",
-      "price": 320,
-      "image": "/images/products/pilsen.jpg",
-      "description": "Pilsen clásica, ligera y crujiente. 4.5% alcohol. Perfecta para el calor.",
-      "category": "lager",
-      "available": true
-    },
-    {
-      "id": "prod_006",
-      "name": "El Profeta Porter",
-      "price": 390,
-      "image": "/images/products/porter.jpg",
-      "description": "Porter suave y cremosa. 5.5% alcohol. Notas de chocolate bitter.",
-      "category": "porter",
-      "available": true
-    },
-    {
-      "id": "prod_007",
-      "name": "El Profeta Wheat",
-      "price": 360,
-      "image": "/images/products/wheat.jpg",
-      "description": "Cerveza de trigo dorada. 5% alcohol. Fresca y con toques de banana.",
-      "category": "wheat",
-      "available": true
-    },
-    {
-      "id": "prod_008",
+      "id": "sessionipa",
       "name": "El Profeta Session IPA",
-      "price": 380,
-      "image": "/images/products/session-ipa.jpg",
-      "description": "Session IPA leicht y drinkable. 4% alcohol. Aromas florales y cítricos.",
-      "category": "ipa",
-      "available": true
+      "price": 920,
+      "image": "/sessionipa.jpeg",
+      "description": "Session IPA ligera y bebible. 4.5% alcohol. Aromas florales y cítricos refrescantes.",
+      "category": "sessionipa",
+      "abv": 4.5,
+      "volume": "473ml",
+      "format": "lata",
+      "available": true,
+      "discounts": [
+        { "minQty": 6, "discount": 10 },
+        { "minQty": 12, "discount": 15 },
+        { "minQty": 24, "discount": 20 }
+      ]
+    },
+    {
+      "id": "redipa",
+      "name": "El Profeta Red IPA",
+      "price": 1100,
+      "image": "/redipa.jpeg",
+      "description": "Red IPA con carácter. 7% alcohol. Intensa con sabores citrus, pino y caramelo.",
+      "category": "redipa",
+      "abv": 7,
+      "volume": "473ml",
+      "format": "lata",
+      "available": true,
+      "discounts": [
+        { "minQty": 6, "discount": 10 },
+        { "minQty": 12, "discount": 15 },
+        { "minQty": 24, "discount": 20 }
+      ]
     }
   ],
   "categories": [
-    { "id": "lager", "name": "Lager", "description": "Cervezas rubias suaves" },
-    { "id": "ipa", "name": "IPA", "description": "India Pale Ales" },
+    { "id": "blonde", "name": "Blonde", "description": "Cervezas rubias doradas" },
+    { "id": "honey", "name": "Honey", "description": "Cervezas con miel" },
+    { "id": "irishred", "name": "Irish Red", "description": "Ales rojas irlandesas" },
     { "id": "stout", "name": "Stout", "description": "Cervezas oscuras" },
-    { "id": "amber", "name": "Amber", "description": "Cervejas ámbar" },
-    { "id": "porter", "name": "Porter", "description": "Porters suaves" },
-    { "id": "wheat", "name": "Wheat", "description": "Cervezas de trigo" }
+    { "id": "sessionipa", "name": "Session IPA", "description": "IPAs ligeras y bebibles" },
+    { "id": "redipa", "name": "Red IPA", "description": "IPAs rojas con carácter" }
   ],
+  "discountRules": {
+    "6": 10,
+    "12": 15,
+    "24": 20
+  },
   "store": {
     "name": "El Profeta",
     "tagline": "Cerveza artesanal de calidad",
