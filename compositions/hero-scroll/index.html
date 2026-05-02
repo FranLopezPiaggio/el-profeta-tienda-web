@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Profeta — Hero Scroll Video</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@400;600;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --brown: #5C361D;
+      --golden: #E8AC56;
+      --cream: #F5EDE3;
+      --dark: #2C1810;
+      --gold: #C4923A;
+    }
+
+    [data-composition-id="hero-scroll"] {
+      width: 1080px;
+      height: 1920px;
+      background: linear-gradient(180deg, var(--cream) 0%, #E8DDD0 50%, #F5EDE3 100%);
+      font-family: 'Montserrat', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Product Cards Grid - appear during scroll */
+    .product-grid {
+      position: absolute;
+      top: 400px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 0 24px 100px;
+      opacity: 0;
+      filter: blur(6px);
+      transform: scale(1.05);
+    }
+
+    .product-card {
+      aspect-ratio: 1;
+      background: white;
+      border-radius: 16px;
+      border: 3px solid #E8DDD0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .product-card .beer-icon {
+      width: 60%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--golden) 0%, var(--gold) 100%);
+      border-radius: 8px;
+    }
+
+    .product-card .beer-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .product-card .beer-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: #B4753F;
+    }
+
+    /* Main Logo - the one user provided */
+    .main-logo {
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      object-fit: contain;
+    }
+
+    /* Logo that scrolls */
+    .logo-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      z-index: 10;
+    }
+
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Hero text */
+    .hero-text {
+      position: absolute;
+      bottom: 280px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 5;
+    }
+
+    .hero-title {
+      font-family: 'Alfa Slab One', serif;
+      font-size: 52px;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      color: var(--golden);
+    }
+
+    .hero-tagline {
+      font-size: 26px;
+      color: #8B6B4D;
+      font-weight: 500;
+    }
+
+    /* Final fixed logo indicator */
+    .fixed-indicator {
+      position: absolute;
+      top: 50px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 16px 24px;
+      border-radius: 40px;
+      box-shadow: 0 8px 32px rgba(92, 54, 29, 0.2);
+      opacity: 0;
+      z-index: 20;
+    }
+
+    .fixed-indicator .mini-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .fixed-indicator .label {
+      font-family: 'Alfa Slab One', serif;
+      font-size: 24px;
+      color: var(--brown);
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+    
+    const tl = gsap.timeline({ paused: true });
+    const duration = 4.5;
+    
+    // === FASE 1: Logo entra desde arriba (0-1s) ===
+    tl.from(".logo-container", {
+      y: -200,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, 0.2);
+    
+    tl.from(".hero-title", {
+      y: 40,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out"
+    }, 0.5);
+    
+    tl.from(".hero-tagline", {
+      y: 30,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.out"
+    }, 0.8);
+    
+    // === FASE 2: Logo empieza a bajar con scroll (1-2.5s) ===
+    // Simula scroll: logo baja desde centro hacia abajo
+    tl.to(".logo-container", {
+      y: 150,
+      top: "65%",
+      duration: 1.2,
+      ease: "power1.inOut"
+    }, 1.2);
+    
+    // Ocultar texto del hero
+    tl.to([".hero-title", ".hero-tagline"], {
+      opacity: 0,
+      y: -20,
+      duration: 0.4,
+      ease: "power2.in"
+    }, 1.5);
+    
+    // Mostrar grid de productos (después del logo)
+    tl.to(".product-grid", {
+      opacity: 0.7,
+      filter: "blur(3px)",
+      scale: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    }, 1.8);
+    
+    // === FASE 3: Logo se mueve a esquina derecha + achica 20% (2.5-3.5s) ===
+    tl.to(".logo-container", {
+      top: 50,
+      right: 50,
+      left: "auto",
+      x: 0,
+      y: 0,
+      width: 480,  // 600 * 0.8 = 480
+      height: 480,
+      duration: 1,
+      ease: "power2.inOut"
+    }, 2.5);
+    
+    // grid se volta más nítido
+    tl.to(".product-grid", {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    }, 3);
+    
+    // === FASE 4: Logo fixed en esquina (3.5-4.5s) ===
+    // indicadorsito "Catálogo" aparece
+    tl.from(".fixed-indicator", {
+      x: 30,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    }, 3.6);
+    
+    // Registro
+    window.__timelines["hero-scroll"] = tl;
+  </script>
+</head>
+<body>
+  <div data-composition-id="hero-scroll" data-width="1080" data-height="1920" data-duration="4.5"><img id="logo-removebg-preview" class="clip" src="logo-removebg-preview.png" data-start="0.83" data-duration="0.31" data-track-index="1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 3" />
+    <!-- Grid de Productos (fondo) -->
+    <div class="product-grid">
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Lager</span><span class="beer-price">$1.200</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">IPA</span><span class="beer-price">$1.400</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Stout</span><span class="beer-price">$1.350</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Red</span><span class="beer-price">$1.250</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Porter</span><span class="beer-price">$1.300</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Wheat</span><span class="beer-price">$1.150</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Pilsen</span><span class="beer-price">$1.100</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Session</span><span class="beer-price">$1.250</span></div>
+      <div class="product-card"><div class="beer-icon"></div><span class="beer-name">Amber</span><span class="beer-price">$1.280</span></div>
+    </div>
+    
+    <!-- Texto del Hero -->
+    <div class="hero-text">
+      <h1 class="hero-title">Cerveza <span>Artesanal</span></h1>
+      <p class="hero-tagline">🍺 Tradición y sabor en cada致</p>
+    </div>
+    
+    <!-- Logo Principal -->
+    <div class="logo-container">
+      <img class="main-logo" src="../../public/logo-removebg-preview.png" alt="El Profeta">
+    </div>
+    
+    <!-- Indicador Fixed -->
+    <div class="fixed-indicator">
+      <img class="mini-logo" src="../../public/logo-removebg-preview.png" alt="El Profeta">
+      <span class="label">Catálogo</span>
+    </div>
+  </div>
+</body>
+</html>

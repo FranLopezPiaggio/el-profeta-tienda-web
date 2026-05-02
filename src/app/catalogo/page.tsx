@@ -1,3 +1,4 @@
+import { Navbar } from '@/components/layout/Navbar'
 import { ProductGrid } from '@/components/catalog/ProductGrid'
 import productsData from '../../../data/products.json'
 
@@ -10,14 +11,19 @@ export default function CatalogPage() {
   const products = productsData.products
 
   return (
-    <main className="pt-24 pb-12 px-4 min-h-screen">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-          Nuestro Catálogo
-        </h1>
-        
-        <ProductGrid products={products} />
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <main className="pt-16 pb-4 min-h-screen flex flex-col">
+        <div className="max-w-full mx-auto w-full flex-1 flex flex-col">
+          <h1 className="font-[family-name:var(--font-alfa-slab)] text-xl sm:text-2xl md:text-3xl text-[#5C361D] px-3 py-2 text-center">
+            Catálogo
+          </h1>
+          
+          <div className="flex-1 overflow-auto product-grid">
+            <ProductGrid products={products} animate={true} />
+          </div>
+        </div>
+      </main>
+    </>
   )
 }

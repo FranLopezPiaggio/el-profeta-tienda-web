@@ -9,10 +9,21 @@
     "plan_check": true,
     "verifier": true,
     "nyquist_validation": true,
-    "auto_advance": false
+    "auto_advance": false,
+    "ui_phase": true,
+    "ui_safety_gate": true,
+    "skip_discuss": false,
+    "research_before_questions": true,
+    "use_worktrees": true
   },
   "planning": {
     "commit_docs": true,
     "search_gitignored": false
+  },
+  "git": {
+    "branching_strategy": "none"
+  },
+  "hooks": {
+    "context_warnings": true
   }
 }

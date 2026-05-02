@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useCartStore } from '@/lib/store'
-import { ShoppingBag, Menu, X } from 'lucide-react'
+import { ShoppingBag, Menu, X, MessageCircle } from 'lucide-react'
 import { CartSidebar } from '@/components/cart/CartSidebar'
+import { Logo } from './Logo'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -15,99 +15,138 @@ const navLinks = [
   { href: '/eventos', label: 'Eventos' },
 ]
 
+const SCROLL_THRESHOLD = 60
+const NAVBAR_HEIGHT = 80
+const SCROLL_PROGRESS_MAX = 200
+
+const LOGO_SIZES = {
+  desktop: { expanded: { width: 100, height: 62 }, scrolled: { width: 70, height: 44 } },
+}
+
 export function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   
   const itemCount = useCartStore(state =>
     state.items.reduce((sum, item) => sum + item.quantity, 0)
   )
 
+  // Smooth scroll detection with progress tracking
+  useEffect(() => {
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY
+          setScrolled(scrollY > SCROLL_THRESHOLD)
+          setScrollProgress(Math.min(scrollY / SCROLL_PROGRESS_MAX, 1))
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Logo size based on scroll state
+  const logoDims = scrolled ? LOGO_SIZES.desktop.scrolled : LOGO_SIZES.desktop.expanded
+
   return (
     <>
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200/50 z-50">
-        <div className="flex items-center justify-between px-4 py-3 max-w-6xl mx-auto">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <Image
-              src="/elprofetalogo-removebg-preview.png"
-              alt="El Profeta"
-              width={120}
-              height={40}
-              className="h-auto w-auto object-contain"
-              priority
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 
+          bg-white/80
+          transition-all duration-300 ease-out will-change-transform
+          ${scrolled ? 'bg-[#F7F3E8]/95 backdrop-blur-md shadow-md border-b border-[#E8DDD0]' : ''}`}
+        style={{ height: scrolled ? 64 : NAVBAR_HEIGHT }}
+      >
+        <div className="flex items-center justify-between h-full px-6 max-w-7xl mx-auto">
+          {/* Logo - pushed down slightly */}
+          <div className="pt-2">
+            <Logo 
+              width={logoDims.width} 
+              height={logoDims.height} 
+              progress={scrollProgress} 
             />
-          </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          {/* Nav Links */}
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-900 hover:text-gray-600 text-sm font-medium transition-colors"
+                className={`text-base font-semibold tracking-wide transition-colors duration-200 drop-shadow-md ${scrolled ? 'text-[#5C361D] hover:text-[#B4753F]' : 'text-white hover:text-[#E8AC56]'}`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* Desktop CTA + Cart */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA + Cart */}
+          <div className="flex items-center gap-4">
             <Link
-              href="/contacto"
-              className="bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-700 text-sm font-medium transition-colors min-h-[44px] flex items-center"
+              href="https://wa.me/1234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contactar por WhatsApp"
+              className={`hidden sm:block p-2.5 rounded-lg transition-colors duration-200 ${
+                scrolled 
+                  ? 'bg-[#25D366] text-white hover:bg-[#128C7E]' 
+                  : 'bg-[#25D366]/90 text-white hover:bg-[#25D366]'
+              }`}
             >
-              Contactar
+              <MessageCircle size={20} />
             </Link>
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-900 hover:text-gray-600 cursor-pointer"
-              aria-label="Abrir carrito"
+              className={`relative p-2 transition-colors duration-200 ${scrolled ? 'text-[#5C361D]' : 'text-white drop-shadow-md'}`}
+              aria-label="Carrito"
             >
               <ShoppingBag size={24} strokeWidth={1.5} />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gray-900 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <span className={`absolute -top-1 -right-1 text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center ${
+                  scrolled ? 'bg-[#B4753F] text-[#F2EBD1]' : 'bg-[#E8AC56] text-[#5C361D]'
+                }`}>
                   {itemCount}
                 </span>
               )}
             </button>
+            <button
+              className={`lg:hidden p-2 ${scrolled ? 'text-[#5C361D]' : 'text-white drop-shadow-md'}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Cerrar' : 'Menú'}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-900"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          <div className="absolute top-[68px] left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
-            <div className="px-4 py-4 space-y-3">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setIsMobileMenuOpen(false)} />
+          <div className="absolute top-[72px] left-0 right-0 bg-[#F7F3E8] border-b shadow-lg">
+            <div className="px-6 py-5 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block text-gray-900 hover:text-gray-600 text-base font-medium py-2"
+                  className="block text-[#5C361D] text-base font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-2 border-t border-gray-200">
+              <div className="pt-3 border-t border-[#E8DDD0]">
                 <Link
                   href="/contacto"
-                  className="block bg-gray-900 text-white px-4 py-3 rounded-md text-center font-medium"
+                  className="block bg-[#E8AC56] text-[#5C361D] px-4 py-3 rounded-lg text-center text-sm font-semibold"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contactar

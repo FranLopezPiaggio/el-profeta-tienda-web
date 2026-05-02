@@ -25,8 +25,8 @@ export function AgeGate() {
   if (confirmed) return null
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white py-3 z-[60]">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 px-4">
+    <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white py-1 z-[60]">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4">
         <p className="text-sm">
           Debes tener 18+ a&ntilde;os para ingresar a esta tienda.
         </p>

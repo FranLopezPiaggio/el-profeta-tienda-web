@@ -1,26 +1,30 @@
-.agents/
-.extra/
+# Next.js
 .next/
-
 node_modules/
+.turbo/
 
+# Env
 .env
 .env.local
 
+# Configs
 .mcp.json
-skills-lock.json
 next-env.d.ts
-
 package-lock.json
 
-.turbo/
+# IDE
 .vscode/
 
+# El Profeta
 .agents/
 .extra/
 .planning/
-.temp/
+skills/
+skills-lock.json
+temp/
+
 AGENTS.md
 PLANNING.md
 data/
 docs/
+design-system/

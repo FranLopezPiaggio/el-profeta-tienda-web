@@ -137,6 +137,52 @@ Plans:
 - [x] 05-01-PLAN.md — Supabase database schema + Auth (Google OAuth) + CMS login + protected routes
 - [x] 05-02-PLAN.md — Checkout integration (save to DB before WhatsApp) + CMS dashboard + Orders + Reports
 
+### Phase 6: Navbar Redesign + New Sections (Mayorista, Negocios, Eventos)
+
+**Goal:** Redesign navbar with logo image, 5 navigation links (Inicio, Catálogo, Mayorista, Negocios, Eventos), and "Contactar" CTA button. Create landing pages for each new section and a contact page with WhatsApp integration.
+
+**Depends on:** Phase 5
+
+**Requirements**: TBD (UI/UX requirements, no specific IDs mapped)
+
+**Success Criteria** (what must be TRUE):
+
+1. Navbar displays the El Profeta logo image instead of text
+2. Navbar shows 5 navigation links: Inicio, Catálogo, Mayorista, Negocios, Eventos
+3. Navbar has a "Contactar" CTA button that links to /contacto
+4. User can navigate to each section via navbar links
+5. User can visit /mayorista and see wholesale content with contact CTA
+6. User can visit /negocios and see business/partnership content with contact CTA
+7. User can visit /eventos and see events content with contact CTA
+8. User can visit /contacto and submit an inquiry via WhatsApp
+9. Navbar is fully responsive on mobile (hamburger menu) and desktop
+
+**Plans:** 3 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Navbar redesign with logo image, 5 nav links, CTA button
+- [ ] 06-02-PLAN.md — Mayorista, Negocios, Eventos page creation
+- [ ] 06-03-PLAN.md — Contact page with WhatsApp form
+
+### Phase 7: Hero to Catalog Transition Animation
+
+**Goal:** Implement smooth page transition animation from Hero section to Catalog page
+
+**Depends on:** Phase 6
+
+**Requirements:** TBD (animation/UX requirements, no specific IDs mapped)
+
+**Success Criteria** (what must be TRUE):
+
+1. Clicking "Ver Catálogo" CTA in Hero triggers smooth transition animation
+2. Transition animates from Hero section to Catalog grid seamlessly
+3. Animation is performant (60fps) on mobile and desktop
+4. Animation feels cohesive with brand aesthetics (Antares design system)
+5. Fallback for users who prefer reduced motion (prefers-reduced-motion)
+6. Works across different browsers (Chrome, Firefox, Safari, Edge)
+
+**Plans:** (to be planned)
+
 ---
 
-_Last updated: 2026-04-26_
+_Last updated: 2026-05-01_
